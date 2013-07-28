@@ -17,3 +17,6 @@ BizTypes.create(name: 'Restaurant/Cafe')
 BizTypes.create(name: 'Tea/Coffee Shop')
 BizTypes.create(name: "Farmer's Market")
 BizTypes.create(name: 'Grocery Store')
+
+# Seed todo_list
+TodoList.create(contact_email: 'test@example.com', feature_name: 'test')
