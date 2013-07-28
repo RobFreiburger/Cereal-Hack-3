@@ -5,8 +5,6 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-		<script src="js.jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
 		<script type="text/javascript">		
             function start(){
                 $('#bigbox').hide();
@@ -108,95 +106,88 @@
 	</head>
 	<body onload="start();">
 		<div data-role="page" data-theme="b">
-		<th><h3>Tell Us What To Map</h3></th>
-				<td>
-					<fieldset data-role="controlgroup">
-				         	<input type="radio" name="radio-choice-1" id="radio-full-1" value="choice-1" onclick="poof();"/>
-				         	<label for="radio-full-1">Do You Know One Place Well?</label>
-				         	<input type="radio" name="radio-choice-1" id="radio-full-2" value="choice-2" onclick="foop();"  />
-				         	<label for="radio-full-2">Do You Have a List of Places to Share?</label> 	
-							<input type="radio" name="radio-choice-1" id="radio-full-3" value="choice-3;" onclick="noop();"  />
-				         	<label for="radio-full-3">Join Our Mapping Team</label> 
-					</fieldset>
-				</td>
-		<div data-role="content">
 		
-		<div id="lindasform"> <!-- 1.DO YOU KNOW ONE PLACE WELL> -->
-		<th><h3>Business Name</a></h3></th> <!-- BUSINESS NAME -->
-				<td>
-					<label for="text-full" class="ui-hidden-accessible"></label>
-			        <input type="text" name="name" id="businessName" value="" />
-				</td>
-	
-		<th><h3>Address</a></h3></th> <!-- ADDRESS --> 
-				<td>
-					<label for="text-full" class="ui-hidden-accessible"></label>
-			        <input type="text" name="name" id="address" value="" />
-				</td>	
+			<th><h3>Tell Us What To Map</h3></th>
+					<td>
+						<fieldset data-role="controlgroup">
+								<input type="radio" name="radio-choice-1" id="radio-full-1" value="choice-1" onclick="poof();"/>
+								<label for="radio-full-1">Do You Know One Place Well?</label>
+								<input type="radio" name="radio-choice-1" id="radio-full-2" value="choice-2" onclick="foop();"  />
+								<label for="radio-full-2">Do You Have a List of Places to Share?</label> 	
+								<input type="radio" name="radio-choice-1" id="radio-full-3" value="choice-3;" onclick="noop();"  />
+								<label for="radio-full-3">Join Our Mapping Team</label> 
+						</fieldset>
+					</td>
+			<div data-role="content">
+				<div id="lindasform"> <!-- 1.DO YOU KNOW ONE PLACE WELL> -->
+					<th><h3>Business Name</a></h3></th> <!-- BUSINESS NAME -->
+						<td>
+							<label for="text-full" class="ui-hidden-accessible"></label>
+							<input type="text" name="name" id="businessName" value="" />
+						</td>
+					<th><h3>Address</a></h3></th> <!-- ADDRESS --> 
+						<td>
+							<label for="text-full" class="ui-hidden-accessible"></label>
+							<input type="text" name="name" id="address" value="" />
+						</td>	
+					<th><h3>Choose All That Apply</h3></th> <!-- CHECKBOX -->
+						<td>
+							<fieldset data-role="controlgroup">
+								<input type="checkbox" name="checkbox-1a" id="c-full-1" />
+								<label for="c-full-1">Restaurant/Cafe</label>
+								<input type="checkbox" name="checkbox-2a" id="c-full-2" />
+								<label for="c-full-2">Tea/Coffee Shop</label>
+								<input type="checkbox" name="checkbox-3a" id="c-full-3" />
+								<label for="c-full-3">Farmer's Market</label>
+								<input type="checkbox" name="checkbox-4a" id="c-full-4" />
+								<label for="c-full-4">Grocery Store</label>
+								<input type="checkbox" name="checkbox-5a" id="c-full-5" />
+								<label for="c-full-5">Offers Local Ingredients</label>
+								<input type="checkbox" name="checkbox-6a" id="c-full-6" />
+								<label for="c-full-6">Offers Organic Products</label>
+								<input type="checkbox" name="checkbox-7a" id="c-full-7" />
+								<label for="c-full-7">Offers Vegan Products</label>
+								<input type="checkbox" name="checkbox-8a" id="c-full-8" />
+								<label for="c-full-8">Offers Gluten-Free Products</label>
+							</fieldset>
+						</td>
+					<th><h3>Extra Information</h3></th>
+						<td>
+							<textarea cols="40" rows="10"  name="textarea-1" id="extraInfo" placeholder="Give us some more details about the place" ></textarea>
+						</td>
+					<th><h3>Contact Information</h3></th> <!-- CONTACT INFO --> 
+						<td>
+							<label for="text-full" class="ui-hidden-accessible"></label>
+							<input type="text" name="name" id="contacts" value="" placeholder="Email and Phone Number" />
+						</td>	
+						<input type="button" value="Submit" onclick="submittedForm1();"> <!-- To send to server, input type="submit" but for now it's a button :)-->
+				</div>	<!-- END OF LINDAFORM -->
+			</div>	
 			
-		<th><h3>Choose All That Apply</h3></th> <!-- CHECKBOX -->
-				<td>
-					<fieldset data-role="controlgroup">
-						<input type="checkbox" name="checkbox-1a" id="c-full-1" />
-						<label for="c-full-1">Restaurant/Cafe</label>
-						<input type="checkbox" name="checkbox-2a" id="c-full-2" />
-						<label for="c-full-2">Tea/Coffee Shop</label>
-						<input type="checkbox" name="checkbox-3a" id="c-full-3" />
-						<label for="c-full-3">Farmer's Market</label>
-						<input type="checkbox" name="checkbox-4a" id="c-full-4" />
-						<label for="c-full-4">Grocery Store</label>
-						<input type="checkbox" name="checkbox-5a" id="c-full-5" />
-						<label for="c-full-5">Offers Local Ingredients</label>
-						<input type="checkbox" name="checkbox-6a" id="c-full-6" />
-						<label for="c-full-6">Offers Organic Products</label>
-						<input type="checkbox" name="checkbox-7a" id="c-full-7" />
-						<label for="c-full-7">Offers Vegan Products</label>
-						<input type="checkbox" name="checkbox-8a" id="c-full-8" />
-						<label for="c-full-8">Offers Gluten-Free Products</label>
-				    </fieldset>
-				</td>
+			<div id="bigbox"> <!-- 2.LIST OF PLACES -->
+				<form>
+					<table id="tblAddress">
+						<tr>
+							<td class="txtBase">Business Info</td>
+							<td class="txtBase">URL</td>
+						</tr>
+					</table>
+					<center><input type="button" data-inline="true" name="Add" data-iconpos="right" data-icon="plus" value="Add New Business Info" onClick="addRowToTable();"></center>
+				</form>
+				<br />
+				<input type="button" value="Submit" onclick="submittedForm2();">
+			</div> <!-- END OF BIGBOX FORM -->
 		
-		<th><h3>Extra Information</h3></th>
-			<td>
-				<textarea cols="40" rows="10"  name="textarea-1" id="extraInfo" placeholder="Give us some more details about the place" ></textarea>
-			</td>
-		
-		<th><h3>Contact Information</h3></th> <!-- CONTACT INFO --> 
-				<td>
-					<label for="text-full" class="ui-hidden-accessible"></label>
-			        <input type="text" name="name" id="contacts" value="" placeholder="Email and Phone Number" />
-				</td>	
-					<input type="button" value="Submit" onclick="submittedForm1();"> <!-- To send to server, input type="submit" but for now it's a button :)-->
-
-		
-		</div>	<!-- END OF LINDAFORM -->
-		</div>	
+			<div id="joinus"> <!-- 3. JOIN US -->
+				<div id="email"><th><h3>Email</h3></th>
+					<td>
+						<label for="text-full" class="ui-hidden-accessible"></label>
+						<input type="text" name="name" id="emailInfo" value="" placeholder="Email Here" />
+					</td>
+				</div>
+				<input type="button" value="Submit" onclick="submittedForm3();">		
+			</div> <!-- END OF JOIN US -->
 			
-		
-		<div id="bigbox"> <!-- 2.LIST OF PLACES -->
-			<form>
-				<table id="tblAddress">
-                <tr>
-                  <td class="txtBase">Business Info</td>
-                  <td class="txtBase">URL</td>
-                </tr>
-				</table>
-				<center><input type="button" data-inline="true" name="Add" data-iconpos="right" data-icon="plus" value="Add New Business Info" onClick="addRowToTable();"></center>
-			</form>
-			<br />
-		<input type="button" value="Submit" onclick="submittedForm2();">
-		</div> <!-- END OF BIGBOX FORM -->
-		
-		<div id="joinus"> <!-- 3. JOIN US -->
-			<div id="email"><th><h3>Email</h3></th>
-			<td>
-				<label for="text-full" class="ui-hidden-accessible"></label>
-				<input type="text" name="name" id="emailInfo" value="" placeholder="Email Here" />
-			</td>
-			</div>
-		
-		<input type="button" value="Submit" onclick="submittedForm3();">		
-		</div> <!-- END OF JOIN US -->
-	</div> <!-- END OF PAGE :D -->
+		</div> <!-- END OF PAGE :D -->
 	</body>
 </html>
