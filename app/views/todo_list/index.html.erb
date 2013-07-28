@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="hero-unit">
+		<h1>HackTheMap.org</h1>
+		<p>Lorem ipsum...</p>
+		<div class="row">
+			<div class="span10 offset2">
+				<button class="btn btn-large" type="button">Add My Business</button>
+				<button class="btn btn-large" type="button">Add To-Do</button>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Done?</th>
+						<th>Item</th>
+						<th>When <i class="icon-chevron-down"></i></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @tasks.each do |task| %>
+						<%= form_for task do |f| %>
+							<tr>
+								<td><%= check_box_tag :done %></td>
+								<td><%= link_to :feature_name, task_path(f) %></td>
+								<td><%= f.updated_at.to_formatted_s :short %></td>
+							</tr>
+						<% end %>
+					<% end %>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
