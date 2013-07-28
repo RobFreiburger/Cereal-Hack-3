@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	<html>
+<html>
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
@@ -11,35 +11,24 @@
             function start(){
                 $('#bigbox').hide();
 				$('#lindasform').hide();
-            }
+				$('#joinus').hide();
+		    }
             function poof(){
 				$('#bigbox').hide();
 				$('#lindasform').show();
-            }
+				$('#joinus').hide();
+		   }
             function foop(){
                 $('#bigbox').show();
 				$('#lindasform').hide();
-            }
-			var mylist = [""];
-			 function add(){
-				myList.push($('input').val()); //adds new items to a list and saves the value
-				$('input').val(""); //resets the box to be blank
-				refresh();
-				}
-			function refresh(){
-				var thislist = "";
-				for (var i = 0; i < mylist.length; i ++) {
-						thislist += "<li><div data-role='content'>" + mylist[i] + "<button onclick='del("+i+");'>Delete</div></li>"; //allows to delete the task chosen
-					}
-				$("#tasks").html(thislist); //displays the contents of this list as html 
-				// where the id=tasks has been called
-				$("#tasks").listview("refresh();");
-			}
+				$('#joinus').hide();
+		   }
+			function noop(){
+				$('#bigbox').hide();
+				$('#lindasform').hide();
+				$('#joinus').show();
+			}	
 			
-			function del(index){ 
-				mylist.splice(index,1); //deletes it 
-				refresh();
-			}
 			function submittedForm1(){ //Submits Linda's form
 				if (!$.trim($("#businessName").val())) {
 					alert("Sorry ): Please check your Business Name!");
@@ -56,6 +45,7 @@
 				else {
 					$('#bigbox').hide();
 					$('#lindasform').hide();
+					$('#joinus').hide();
 					alert("Thank you! :D");
 				}
 			}
@@ -69,17 +59,55 @@
 				else {
 					$('#bigbox').hide();
 					$('#lindasform').hide();
+					$('#joinus').hide();
 					alert("Thank you! :D");
 				}
 			}
+			function submittedForm3(){ //Submits other form
+				if (!$.trim($("#emailInfo").val())) { //Checks if email has been entered
+					alert("Sorry ): Please check the email entered!");
+				}
+				else {
+					$('#bigbox').hide();
+					$('#lindasform').hide();
+					$('#joinus').hide();
+					alert("Thank you! :D");
+				}
+			}
+			//For second form, allows option of adding as many names/urls as desired :D
+			//This is also the reason for the weird looking text inputs because they are cells ):
+			function addRowToTable(){
+				var tbl = document.getElementById('tblAddress');
+				var lastRow = tbl.rows.length;
+				// if there's no header row in the table, then iteration = lastRow + 1
+				var iteration = lastRow;
+				//  var iteration = lastRow + 1;
+				var row = tbl.insertRow(lastRow);
+ 
+				//  Business Info
+				var cell0 = row.insertCell(0);
+				var el = document.createElement('input');
+				el.type = 'text';
+				el.NAME = 'Business Info[]';
+				el.id = 'nameInfo';
+				el.placeholder = 'Enter in Name, Contact, etc';
+				el.size = 30;
+				cell0.appendChild(el);
+ 
+				// URL
+				var cell1 = row.insertCell(1);
+				var el = document.createElement('input');
+				el.type = 'text';
+				el.NAME = 'URL[]';
+				el.id = 'urlInfo';
+				el.placeholder = 'Paste website URL here';
+				el.size = 80;
+				cell1.appendChild(el);
+			}
 		</script>
-		<style>
-		#URL {
-		padding-left:50px;
-		}
-		</style>
 	</head>
 	<body onload="start();">
+		<div data-role="page" data-theme="b">
 		<th><h3>Tell Us What To Map</h3></th>
 				<td>
 					<fieldset data-role="controlgroup">
@@ -87,7 +115,9 @@
 				         	<label for="radio-full-1">Do You Know One Place Well?</label>
 				         	<input type="radio" name="radio-choice-1" id="radio-full-2" value="choice-2" onclick="foop();"  />
 				         	<label for="radio-full-2">Do You Have a List of Places to Share?</label> 	
-				    </fieldset>
+							<input type="radio" name="radio-choice-1" id="radio-full-3" value="choice-3;" onclick="noop();"  />
+				         	<label for="radio-full-3">Join Our Mapping Team</label> 
+					</fieldset>
 				</td>
 		<div data-role="content">
 		
@@ -144,26 +174,29 @@
 			
 		
 		<div id="bigbox"> <!-- 2.LIST OF PLACES -->
-			<th><h3>Name</h3></th>
-			<td>
-				<textarea cols="40" rows="10"  name="textarea-1" id="nameInfo" placeholder="Business Name"></textarea>
-			</td>
-		
-		<div id="URL"><th><h3>URL 1</h3></th> <!-- CONTACT INFO --> 
-				<td>
-					<label for="text-full" class="ui-hidden-accessible"></label>
-			        <input type="text" name="name" id="urlInfo" value="" placeholder="Paste Link Here" />
-				</td> </div>
-		
-		
-        <!--<center><button data-inline="true" data-icon = "plus" data-iconpos = "right" onclick="add();"> Add New Task </button><center> <!--new task button-->
-      
+			<form>
+				<table id="tblAddress">
+                <tr>
+                  <td class="txtBase">Business Info</td>
+                  <td class="txtBase">URL</td>
+                </tr>
+				</table>
+				<center><input type="button" data-inline="true" name="Add" data-iconpos="right" data-icon="plus" value="Add New Business Info" onClick="addRowToTable();"></center>
+			</form>
+			<br />
 		<input type="button" value="Submit" onclick="submittedForm2();">
-
-		
-
 		</div> <!-- END OF BIGBOX FORM -->
 		
+		<div id="joinus"> <!-- 3. JOIN US -->
+			<div id="email"><th><h3>Email</h3></th>
+			<td>
+				<label for="text-full" class="ui-hidden-accessible"></label>
+				<input type="text" name="name" id="emailInfo" value="" placeholder="Email Here" />
+			</td>
+			</div>
 		
+		<input type="button" value="Submit" onclick="submittedForm3();">		
+		</div> <!-- END OF JOIN US -->
+	</div> <!-- END OF PAGE :D -->
 	</body>
-	</html>
+</html>
