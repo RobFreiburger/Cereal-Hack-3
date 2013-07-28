@@ -3,7 +3,10 @@ CerealHack3::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root "todo_list#index"
+  root "static_pages#ZairesHomePage"
+
+  # Show static pages
+  get '/:action', controller: 'static_pages'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
