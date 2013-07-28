@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Seed biz_feats
+BizFeats.create(name: 'Local Ingredients')
+BizFeats.create(name: 'Organic Products')
+BizFeats.create(name: 'Vegan Products')
+BizFeats.create(name: 'Gluten-Free Products')
+
+# Seed biz_types
+BizTypes.create(name: 'Restaurant/Cafe')
+BizTypes.create(name: 'Tea/Coffee Shop')
+BizTypes.create(name: "Farmer's Market")
+BizTypes.create(name: 'Grocery Store')
