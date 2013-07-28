@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130728041554) do
+ActiveRecord::Schema.define(version: 20130728090531) do
 
   create_table "biz_feats", force: true do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20130728041554) do
     t.string   "link_to_site"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "done"
   end
 
   add_index "todo_lists", ["contact_email"], name: "index_todo_lists_on_contact_email"
