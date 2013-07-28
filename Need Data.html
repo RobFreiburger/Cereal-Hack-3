@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+		<script type="text/javascript"></script>
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="content">
+				<p>Do you need location data or maps for your app? Let us help! Contact us at <a href="mailto:fetch@hackmymap.org">fetch@hackmymap.org</a>.
+				<br /><br />
+				Tips for fetching Sacramento's farm2fork data from OSM:
+				<br /><br />
+				Each location point in OSM is called a <b>node</b>. Nodes can have one or more key-value pairs which describe what they are.
+				</p>
+				<center>
+				<table border=1>
+				<tr>
+					<td>interest</td>
+					<td>OSM key-value pair</td>
+				</tr>
+				<tr>
+					<td>eating and drinking places</td>
+					<td>amenity=restaurant<br />
+						amenity=cafe<br />
+						amenity=fast_food<br />
+						amenity=pub<br />
+						amenity=bar<br />
+					</td>
+				</tr>
+				<tr>
+					<td>coffee shops</td>
+					<td>use shop=coffee for a shop that specialises in selling the ingredients, amenity=cafe for one which sells the drink</td>
+				</tr>
+				<tr>
+					<td>farmers markets</td>
+					<td>shop = farm</td>
+				</tr>
+				<tr>
+					<td>places that offer locally-sourced food/ingredients</td>
+					<td>local_food=yes</td>
+				</tr>
+				<tr>
+					<td>places that offer organic food/ingredients</td>
+					<td>organic_food=yes</td>
+				</tr>
+				<tr>
+					<td>places that offer vegan food/ingredients</td>
+					<td>vegan_food=yes</td>
+				</tr>
+				<tr>
+					<td>places that offer gluten-free food/ingredients</td>
+					<td>gluten-free_food=yes</td>
+				</tr>
+				</table>
+				</center>
+				<br />
+				For more technical information about fetching and using data from OpenStreetMap, check out this very helpful <a href = "http://switch2osm.org/">site</a>.
+				<br />
+				<a href="http://hackthemap.org/" data-role="button" data-inline="true" data-icon="home">Return to Home Page</a>			
+			</div>
+		</div>
+	</body>
+</html>
