@@ -1,5 +1,9 @@
 class StaticPagesController < ApplicationController
 	layout false
+	
+	def home
+		render 'ZairesHomePage'
+	end
 
 	def learn
 	end
