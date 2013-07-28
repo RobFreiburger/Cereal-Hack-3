@@ -20,6 +20,9 @@ class StaticPagesController < ApplicationController
 	def need_data
 	end
 
+	def splash_page
+	end
+
 	def statuspage
 	end
 
