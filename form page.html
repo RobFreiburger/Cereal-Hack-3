@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+		<script src="js.jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">		
+            function start(){
+                $('#bigbox').hide();
+				$('#lindasform').hide();
+            }
+            function poof(){
+				$('#bigbox').hide();
+				$('#lindasform').show();
+            }
+            function foop(){
+                $('#bigbox').show();
+				$('#lindasform').hide();
+            }
+			var mylist = [""];
+			 function add(){
+				myList.push($('input').val()); //adds new items to a list and saves the value
+				$('input').val(""); //resets the box to be blank
+				refresh();
+				}
+			function refresh(){
+				var thislist = "";
+				for (var i = 0; i < mylist.length; i ++) {
+						thislist += "<li><div data-role='content'>" + mylist[i] + "<button onclick='del("+i+");'>Delete</div></li>"; //allows to delete the task chosen
+					}
+				$("#tasks").html(thislist); //displays the contents of this list as html 
+				// where the id=tasks has been called
+				$("#tasks").listview("refresh();");
+			}
+			
+			function del(index){ 
+				mylist.splice(index,1); //deletes it 
+				refresh();
+			}
+			function submittedForm1(){ //Submits Linda's form
+				if (!$.trim($("#businessName").val())) {
+					alert("Sorry ): Please check your Business Name!");
+				}
+				else if (!$.trim($("#address").val())) {
+					alert("Sorry ): Please check your Address!");
+				}
+				else if (!$.trim($("#extraInfo").val())) {
+					alert("Sorry ): Please check the Extra Information!");
+				}
+				else if (!$.trim($("#contacts").val())) {
+					alert("Sorry ): Please check the Contacts!");
+				}
+				else {
+					$('#bigbox').hide();
+					$('#lindasform').hide();
+					alert("Thank you! :D");
+				}
+			}
+			function submittedForm2(){ //Submits other form
+				if (!$.trim($("#nameInfo").val())) { //Checks Business Name
+					alert("Sorry ): Please check the name entered!");
+				}
+				else if (!$.trim($("#urlInfo").val())) { //Checks URL
+					alert("Sorry ): Please check the URL entered!");
+				}
+				else {
+					$('#bigbox').hide();
+					$('#lindasform').hide();
+					alert("Thank you! :D");
+				}
+			}
+		</script>
+		<style>
+		#URL {
+		padding-left:50px;
+		}
+		</style>
+	</head>
+	<body onload="start();">
+		<th><h3>Tell Us What To Map</h3></th>
+				<td>
+					<fieldset data-role="controlgroup">
+				         	<input type="radio" name="radio-choice-1" id="radio-full-1" value="choice-1" onclick="poof();"/>
+				         	<label for="radio-full-1">Do You Know One Place Well?</label>
+				         	<input type="radio" name="radio-choice-1" id="radio-full-2" value="choice-2" onclick="foop();"  />
+				         	<label for="radio-full-2">Do You Have a List of Places to Share?</label> 	
+				    </fieldset>
+				</td>
+		<div data-role="content">
+		
+		<div id="lindasform"> <!-- 1.DO YOU KNOW ONE PLACE WELL> -->
+		<th><h3>Business Name</a></h3></th> <!-- BUSINESS NAME -->
+				<td>
+					<label for="text-full" class="ui-hidden-accessible"></label>
+			        <input type="text" name="name" id="businessName" value="" />
+				</td>
+	
+		<th><h3>Address</a></h3></th> <!-- ADDRESS --> 
+				<td>
+					<label for="text-full" class="ui-hidden-accessible"></label>
+			        <input type="text" name="name" id="address" value="" />
+				</td>	
+			
+		<th><h3>Choose All That Apply</h3></th> <!-- CHECKBOX -->
+				<td>
+					<fieldset data-role="controlgroup">
+						<input type="checkbox" name="checkbox-1a" id="c-full-1" />
+						<label for="c-full-1">Restaurant/Cafe</label>
+						<input type="checkbox" name="checkbox-2a" id="c-full-2" />
+						<label for="c-full-2">Tea/Coffee Shop</label>
+						<input type="checkbox" name="checkbox-3a" id="c-full-3" />
+						<label for="c-full-3">Farmer's Market</label>
+						<input type="checkbox" name="checkbox-4a" id="c-full-4" />
+						<label for="c-full-4">Grocery Store</label>
+						<input type="checkbox" name="checkbox-5a" id="c-full-5" />
+						<label for="c-full-5">Offers Local Ingredients</label>
+						<input type="checkbox" name="checkbox-6a" id="c-full-6" />
+						<label for="c-full-6">Offers Organic Products</label>
+						<input type="checkbox" name="checkbox-7a" id="c-full-7" />
+						<label for="c-full-7">Offers Vegan Products</label>
+						<input type="checkbox" name="checkbox-8a" id="c-full-8" />
+						<label for="c-full-8">Offers Gluten-Free Products</label>
+				    </fieldset>
+				</td>
+		
+		<th><h3>Extra Information</h3></th>
+			<td>
+				<textarea cols="40" rows="10"  name="textarea-1" id="extraInfo" placeholder="Give us some more details about the place" ></textarea>
+			</td>
+		
+		<th><h3>Contact Information</h3></th> <!-- CONTACT INFO --> 
+				<td>
+					<label for="text-full" class="ui-hidden-accessible"></label>
+			        <input type="text" name="name" id="contacts" value="" placeholder="Email and Phone Number" />
+				</td>	
+					<input type="button" value="Submit" onclick="submittedForm1();"> <!-- To send to server, input type="submit" but for now it's a button :)-->
+
+		
+		</div>	<!-- END OF LINDAFORM -->
+		</div>	
+			
+		
+		<div id="bigbox"> <!-- 2.LIST OF PLACES -->
+			<th><h3>Name</h3></th>
+			<td>
+				<textarea cols="40" rows="10"  name="textarea-1" id="nameInfo" placeholder="Business Name"></textarea>
+			</td>
+		
+		<div id="URL"><th><h3>URL 1</h3></th> <!-- CONTACT INFO --> 
+				<td>
+					<label for="text-full" class="ui-hidden-accessible"></label>
+			        <input type="text" name="name" id="urlInfo" value="" placeholder="Paste Link Here" />
+				</td> </div>
+		
+		
+        <!--<center><button data-inline="true" data-icon = "plus" data-iconpos = "right" onclick="add();"> Add New Task </button><center> <!--new task button-->
+      
+		<input type="button" value="Submit" onclick="submittedForm2();">
+
+		
+
+		</div> <!-- END OF BIGBOX FORM -->
+		
+		
+	</body>
+	</html>
