@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 	layout false
-	
+
 	def home
 		render 'ZairesHomePage'
 	end
@@ -15,6 +15,9 @@ class StaticPagesController < ApplicationController
 	end
 
 	def hackathon
+	end
+
+	def need_data
 	end
 
 	def statuspage
