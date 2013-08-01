@@ -47,3 +47,6 @@ gem 'unicorn'
 
 # Heroku specific gem
 gem 'rails_12factor', group: :production
+
+# New Relic free monitoring
+gem 'newrelic_rpm'
